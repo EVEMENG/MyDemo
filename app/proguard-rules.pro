@@ -168,16 +168,16 @@
 -dontwarn org.codehaus.mojo.animal_sniffer.*
 -dontwarn okhttp3.internal.platform.ConscryptPlatform
 
-#retrofit
--dontwarn retrofit.**
--keep class retrofit.** { *; }
--keepattributes Signature
--keepattributes Exceptions
--dontwarn okio.**
-
-#Rxjava RxAndroid
--dontwarn rx.*
--dontwarn sun.misc.**
+##retrofit
+#-dontwarn retrofit.**
+#-keep class retrofit.** { *; }
+#-keepattributes Signature
+#-keepattributes Exceptions
+#-dontwarn okio.**
+#
+##Rxjava RxAndroid
+#-dontwarn rx.*
+#-dontwarn sun.misc.**
 
 #Glide
 -keep public class * implements com.bumptech.glide.module.GlideModule
@@ -193,28 +193,28 @@
 -keep class com.google.gson.stream.** { *; }
 -keep class com.google.gson.examples.android.model.** { *; }
 
-#Lambda表达式
--keep class java.lang.invoke.** {*;}
--dontwarn java.lang.invoke.**
+##Lambda表达式
+#-keep class java.lang.invoke.** {*;}
+#-dontwarn java.lang.invoke.**
 
-#高徳地图
-#3D 地图
--keepclass com.amap.api.mapcore.**{*;}
--keepclass com.amap.api.maps.**{*;}
--keepclass com.autonavi.amap.mapcore.*{*;}
-#定位
--keepclass com.amap.api.location.**{*;}
--keepclass com.loc.**{*;}
--keepclass com.amap.api.fence.**{*;}
--keepclass com.autonavi.aps.amapapi.model.**{*;}
-# 搜索
--keepclass com.amap.api.services.**{*;}
-# 2D地图
--keepclass com.amap.api.maps2d.**{*;}
--keepclass com.amap.api.mapcore2d.**{*;}
-# 导航
--keepclass com.amap.api.navi.**{*;}
--keepclass com.autonavi.**{*;}
+##高徳地图
+##3D 地图
+#-keepclass com.amap.api.mapcore.**{*;}
+#-keepclass com.amap.api.maps.**{*;}
+#-keepclass com.autonavi.amap.mapcore.*{*;}
+##定位
+#-keepclass com.amap.api.location.**{*;}
+#-keepclass com.loc.**{*;}
+#-keepclass com.amap.api.fence.**{*;}
+#-keepclass com.autonavi.aps.amapapi.model.**{*;}
+## 搜索
+#-keepclass com.amap.api.services.**{*;}
+## 2D地图
+#-keepclass com.amap.api.maps2d.**{*;}
+#-keepclass com.amap.api.mapcore2d.**{*;}
+## 导航
+#-keepclass com.amap.api.navi.**{*;}
+#-keepclass com.autonavi.**{*;}
 
 
 #ButterKnife
@@ -228,54 +228,55 @@
     @butterknife.* <methods>;
 }
 
-#eventbus 3.0
--keepattributes *Annotation*
--keepclassmembers class ** {
-    @org.greenrobot.eventbus.Subscribe <methods>;
-}
--keep enum org.greenrobot.eventbus.ThreadMode { *; }
--keepclassmembers class * extends org.greenrobot.eventbus.util.ThrowableFailureEvent {
-    <init>(java.lang.Throwable);
-}
+##eventbus 3.0
+#-keepattributes *Annotation*
+#-keepclassmembers class ** {
+#    @org.greenrobot.eventbus.Subscribe <methods>;
+#}
+#-keep enum org.greenrobot.eventbus.ThreadMode { *; }
+#-keepclassmembers class * extends org.greenrobot.eventbus.util.ThrowableFailureEvent {
+#    <init>(java.lang.Throwable);
+#}
 
-#ARouter组件化
--keep public class com.alibaba.android.arouter.routes.**{*;}
--keep public class com.alibaba.android.arouter.facade.**{*;}
--keep class * implements com.alibaba.android.arouter.facade.template.ISyringe{*;}
+##ARouter组件化
+#-keep public class com.alibaba.android.arouter.routes.**{*;}
+#-keep public class com.alibaba.android.arouter.facade.**{*;}
+#-keep class * implements com.alibaba.android.arouter.facade.template.ISyringe{*;}
 
-#ijkplayer
--keep class tv.danmaku.ijk.** { *; }
--dontwarn tv.danmaku.ijk.**
--keep class com.dueeeke.videoplayer.** { *; }
--dontwarn com.dueeeke.videoplayer.**
+##ijkplayer
+#-keep class tv.danmaku.ijk.** { *; }
+#-dontwarn tv.danmaku.ijk.**
+#-keep class com.dueeeke.videoplayer.** { *; }
+#-dontwarn com.dueeeke.videoplayer.**
 
-#七牛上传
--keep class com.qiniu.**{*;}
--keep class com.qiniu.**{public <init>();}
+##七牛上传
+#-keep class com.qiniu.**{*;}
+#-keep class com.qiniu.**{public <init>();}
 
-#友盟
--keep class com.umeng.** {*;}
--dontwarn com.taobao.**
--dontwarn anet.channel.**
--dontwarn anetwork.channel.**
--dontwarn org.android.**
--dontwarn org.apache.thrift.**
--dontwarn com.xiaomi.**
--dontwarn com.huawei.**
--dontwarn com.meizu.**
--dontwarn com.umeng.**
--keepattributes *Annotation*
--keep class com.taobao.** {*;}
--keep class org.android.** {*;}
--keep class anet.channel.** {*;}
--keep class com.xiaomi.** {*;}
--keep class com.huawei.** {*;}
--keep class com.meizu.** {*;}
--keep class org.apache.thrift.** {*;}
--keep class com.alibaba.sdk.android.**{*;}
--keep class com.ut.**{*;}
--keep class com.ta.**{*;}
--keep public class **.R$*{
-   public static final int *;
-}
--keep com.sdsjc.mydemo.bean.**
+##友盟
+#-keep class com.umeng.** {*;}
+#-dontwarn com.taobao.**
+#-dontwarn anet.channel.**
+#-dontwarn anetwork.channel.**
+#-dontwarn org.android.**
+#-dontwarn org.apache.thrift.**
+#-dontwarn com.xiaomi.**
+#-dontwarn com.huawei.**
+#-dontwarn com.meizu.**
+#-dontwarn com.umeng.**
+#-keepattributes *Annotation*
+#-keep class com.taobao.** {*;}
+#-keep class org.android.** {*;}
+#-keep class anet.channel.** {*;}
+#-keep class com.xiaomi.** {*;}
+#-keep class com.huawei.** {*;}
+#-keep class com.meizu.** {*;}
+#-keep class org.apache.thrift.** {*;}
+#-keep class com.alibaba.sdk.android.**{*;}
+#-keep class com.ut.**{*;}
+#-keep class com.ta.**{*;}
+#-keep public class **.R$*{
+#   public static final int *;
+#}
+# -keep class com.sdsjc.mydemo.model.**{*;}
+ -keep class com.sdsjc.mydemo.bean.**{*;}
